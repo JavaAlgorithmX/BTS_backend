@@ -6,6 +6,7 @@ const courseRouter = require("./router/course-router");
 const connectDB = require("./utils/db");
 const errorMiddleware = require("./middleware/error-middleware");
 const cors = require("cors");
+const blogRouter = require("./router/blog-router");
 
 
 //Middle ware to accept json formet
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRouter);
 app.use("/api/course",courseRouter);
+app.use("/api/blog",blogRouter)
 
 //error middle ware
 app.use(errorMiddleware);
