@@ -13,9 +13,14 @@ const blogRouter = require("./router/blog-router");
 app.use(cors());  
 app.use(express.json());
 
+
+
 app.use("/api/auth", authRouter);
 app.use("/api/course",courseRouter);
 app.use("/api/blog",blogRouter)
+app.use("/",(req,res)=>{
+  return res.status(200).json({"message": "Hello"})
+})
 
 //error middle ware
 app.use(errorMiddleware);
