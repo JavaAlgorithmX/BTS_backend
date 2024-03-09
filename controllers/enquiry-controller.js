@@ -1,6 +1,7 @@
 const Enquiry = require('../models/enquiry-model'); // Adjust the path based on your file structure
 // const transporter = require('../controllers/email-controller')
 const { sendEmail, transporter } = require('../controllers/email-controller');
+// const {confirmationTem} = require('../email/en');
 const ejs = require('ejs');
 const fs = require('fs');
 // const tamplate = require("../email/")
@@ -26,7 +27,8 @@ exports.createEnquiry = async (req, res) => {
 async function sendConfirmationEmail(email, subject, enquiry) {
   
     try {
-      const templatePath = 'D:/BrainOneTech/Website/backend/BTS_backend/email/enquiry-confirmation-tamplate.ejs'; // Update with the actual path
+      // const templatePath = 'D:/BrainOneTech/Website/backend/BTS_backend/email/enquiry-confirmation-tamplate.ejs'; // Update with the actual path
+      const templatePath1 = '../email/enquiry-confirmation-tamplate.ejs'; // Update with the actual path
       const templateContent = fs.readFileSync(templatePath, 'utf-8');
   
       const formattedMessage = await ejs.render(templateContent, { name: enquiry.name, message: enquiry.message });
@@ -54,7 +56,8 @@ async function sendConfirmationEmail(email, subject, enquiry) {
   // Function to send notification email to admin
   async function sendEnquiryNotificationEmail(adminEmail, subject, enquiry) {
     try {
-      const templatePath = 'D:/BrainOneTech/Website/backend/BTS_backend/email/enquiry-notification-tamplate.ejs'; // Update with the actual path
+      // const templatePath = 'D:/BrainOneTech/Website/backend/BTS_backend/email/enquiry-notification-tamplate.ejs'; // Update with the actual path
+      const templatePath = '../email/enquiry-notification-tamplate.ejs'; // Update with the actual path
       const templateContent = fs.readFileSync(templatePath, 'utf-8');
   
       const formattedMessage = await ejs.render(templateContent, {
