@@ -28,8 +28,10 @@ async function sendConfirmationEmail(email, subject, enquiry) {
   
     try {
       // const templatePath = 'D:/BrainOneTech/Website/backend/BTS_backend/email/enquiry-confirmation-tamplate.ejs'; // Update with the actual path
-      const templatePath1 = '../email/enquiry-confirmation-tamplate.ejs'; // Update with the actual path
-      const templateContent = fs.readFileSync(templatePath, 'utf-8');
+     // const templatePath1 = '../email/enquiry-confirmation-tamplate.ejs'; // Update with the actual path
+     const templatePath = path.join(__dirname, '../email/enquiry-confirmation-template.ejs');
+
+     const templateContent = fs.readFileSync(templatePath, 'utf-8');
   
       const formattedMessage = await ejs.render(templateContent, { name: enquiry.name, message: enquiry.message });
   
@@ -57,7 +59,9 @@ async function sendConfirmationEmail(email, subject, enquiry) {
   async function sendEnquiryNotificationEmail(adminEmail, subject, enquiry) {
     try {
       // const templatePath = 'D:/BrainOneTech/Website/backend/BTS_backend/email/enquiry-notification-tamplate.ejs'; // Update with the actual path
-      const templatePath = '../email/enquiry-notification-tamplate.ejs'; // Update with the actual path
+     // const templatePath = '../email/enquiry-notification-tamplate.ejs'; // Update with the actual path
+      const templatePath = path.join(__dirname, '../email/enquiry-notification-tamplate.ejs');
+
       const templateContent = fs.readFileSync(templatePath, 'utf-8');
   
       const formattedMessage = await ejs.render(templateContent, {
