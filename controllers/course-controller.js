@@ -1,5 +1,8 @@
 const Course = require("../models/course-model");
 const { ObjectId } = require("mongodb");
+const {updateOrCreateCourseFromExcel} = require("../utils/excelFileUpload")
+const xlsx = require('xlsx');
+
 
 const create = async (req, res) => {
   try {
@@ -122,6 +125,18 @@ const enrolledStudentsOfBatchList = async (req, res) => {
       }
 };
 
+const createFromExcel = async (req, res) => {
+  try {
+    console.log(req.body);
+    const {data} = req.body;
+
+    const result = await updateOrCreateCourseFromExcel(data);
+    res.status(200).json({ message: result });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 module.exports = {
   create,
   getCourse,
@@ -130,5 +145,6 @@ module.exports = {
   addSubTopics,
   addBatch,
   enrollStudentInBatch,
-  enrolledStudentsOfBatchList
+  enrolledStudentsOfBatchList,
+  createFromExcel
 };

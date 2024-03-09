@@ -8,6 +8,8 @@ const errorMiddleware = require("./middleware/error-middleware");
 const cors = require("cors");
 const blogRouter = require("./router/blog-router");
 const emailRoutes = require('./router/email-router');
+const enquiryRoutes = require('./router/enquiry-router'); // Adjust the path based on your file structure
+
 
 
 
@@ -21,11 +23,12 @@ app.use("/api/auth", authRouter);
 app.use("/api/course",courseRouter);
 app.use("/api/blog",blogRouter)
 app.use('/api/email', emailRoutes);
+app.use('/api', enquiryRoutes);
 //error middle ware
 app.use(errorMiddleware);
 
 const PORT = 4000;
-const appPassword = process.env.APP_PASSWORD
+// const appPassword = process.env.APP_PASSWORD
 
 connectDB().then(() => {
   app.listen(PORT, () => {

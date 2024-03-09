@@ -9,28 +9,11 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// const sendEmail = async (to, subject, text) => {
-//   try {
-//     const info = await transporter.sendMail({
-//       from: process.env.EMAIL, 
-//       to : 'mastermadhav001@gmail.com',
-//       subject:'Testing the mail service',
-//       text:'Hello there This is mail is just for testing',
-//     });
-
-//     console.log('Email sent:', info.response);
-//     return 'Email sent successfully';
-//   } catch (error) {
-//     console.error('Error sending email:', error);
-//     throw new Error('Internal Server Error');
-//   }
-// };
-
 const sendEmail = async (req, res) => {
     const { to, subject, text } = req.body;
   
     try {
-      const info = await transporter.sendMail({
+      const info = transporter.sendMail({
         from:{
             name:"BRAINONETECH",
             address:process.env.EMAIL,
@@ -48,6 +31,26 @@ const sendEmail = async (req, res) => {
     }
   };
 
+// const sendEmail = async (to, subject, text) => {
+//   try {
+//     const info = transporter.sendMail({
+//       from: {
+//         name: "BRAINONETECH",
+//         address: process.env.EMAIL,
+//       },
+//       to,
+//       subject,
+//       text,
+//     });
+//     console.log('Email sent:', info.response);
+//     return 'Email sent successfully';
+//   } catch (error) {
+//     console.error('Error sending email:', error);
+//     throw new Error('Internal Server Error');
+//   }
+// };
+
 module.exports = {
   sendEmail,
+  transporter, // export transporter for use in other files
 };
