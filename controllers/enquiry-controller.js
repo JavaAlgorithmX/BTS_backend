@@ -4,6 +4,8 @@ const { sendEmail, transporter } = require('../controllers/email-controller');
 // const {confirmationTem} = require('../email/en');
 const ejs = require('ejs');
 const fs = require('fs');
+const path = require('path');
+
 // const tamplate = require("../email/")
 
 // email\enquiry-confirmation-tamplate.ejs
@@ -29,11 +31,11 @@ async function sendConfirmationEmail(email, subject, enquiry) {
     try {
       // const templatePath = 'D:/BrainOneTech/Website/backend/BTS_backend/email/enquiry-confirmation-tamplate.ejs'; // Update with the actual path
      // const templatePath1 = '../email/enquiry-confirmation-tamplate.ejs'; // Update with the actual path
-     const templatePath = path.join(__dirname, '../email/enquiry-confirmation-template.ejs');
+     const templatePath = path.join(__dirname, '../email/enquiry-confirmation-tamplate.ejs');
 
      const templateContent = fs.readFileSync(templatePath, 'utf-8');
   
-      const formattedMessage = await ejs.render(templateContent, { name: enquiry.name, message: enquiry.message });
+      const formattedMessage = ejs.render(templateContent, { name: enquiry.name, message: enquiry.message });
   
       const mailOptions = {
         from: transporter.options.auth.user,
