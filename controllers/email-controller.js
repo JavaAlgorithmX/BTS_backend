@@ -9,9 +9,26 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+
+
+
 const sendEmail = async (req, res) => {
     const { to, subject, text } = req.body;
-  
+    console.log(`${to}  ${subject}  ${text}`);
+
+    await new Promise((resolve, reject) => {
+      // verify connection configuration
+      transporter.verify(function (error, success) {
+          if (error) {
+              console.log(error);
+              reject(error);
+          } else {
+              console.log("Server is ready to take our messages");
+              resolve(success);
+          }
+      });
+    });
+    
     try {
       const info = transporter.sendMail({
         from:{
