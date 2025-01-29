@@ -4,6 +4,8 @@ const app = express();
 
 const cors = require("cors");
 const emailRoutes = require('./router/email-router');
+// Serve static files from "public" folder
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 
 //Middle ware to accept json format
