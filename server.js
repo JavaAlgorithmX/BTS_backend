@@ -1,6 +1,7 @@
 require("dotenv").config();// must be first line if we want to use dot env file
 const express = require("express");
 const app = express();
+const path = require('path'); // Import the path module
 
 const cors = require("cors");
 const emailRoutes = require('./router/email-router');
