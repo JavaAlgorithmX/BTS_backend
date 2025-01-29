@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consulting Slot Booking</title>
+</head>
+<body>
+  <table width="100%" cellpadding="0" cellspacing="0" style="font-family: Arial, sans-serif;">
+    <tr>
+      <td style="text-align: center; padding: 20px;">
+        <!-- Embedded logo -->
+        <img src="https://brain-one-tech.vercel.app/logo.png" alt="BrainOneTech Logo" width="150" />
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 20px;">
+        <p style="font-size: 16px; color: #333;">Hi <%= name %>,</p>
+        <p style="font-size: 14px; color: #555;">
+          Thank you for booking a consulting slot with us. Here are your booking details:
+        </p>
+        <ul style="font-size: 14px; color: #555; list-style: none; padding: 0;">
+          <li><strong>Selected Date:</strong> <%= selectedDate %></li>
+          <li><strong>Booking Type:</strong> <%= bookingType === 'withoutPayment' ? 'Without Payment' : 'With Payment' %></li>
+          <li><strong>Mobile:</strong> <%= mobile %></li>
+          <li><strong>Message:</strong> <%= message || "Not Provided" %></li>
+        </ul>
+
+        <% if (bookingType === 'withoutPayment') { %>
+          <p style="font-size: 14px; color: #d9534f; font-weight: bold;">
+            Reminder: Your slot is not confirmed until the payment is made. Please make the payment before <%= selectedDate %> to secure your booking.
+          </p>
+          <p style="font-size: 14px; color: #555;">
+            <strong>Payment Details:</strong>
+          </p>
+          <ul style="font-size: 14px; color: #555; list-style: none; padding: 0;">
+            <li><strong>Bank Name:</strong> XYZ Bank</li>
+            <li><strong>Account Number:</strong> 1234567890</li>
+            <li><strong>IFSC Code:</strong> XYZ0001234</li>
+            <li><strong>UPI ID:</strong> brainonetech@upi</li>
+          </ul>
+          <p style="font-size: 14px; color: #555;">
+            After making the payment, please email the payment screenshot to <strong>payments@brainonetech.com</strong>  
+            with the subject: <strong>"Payment Confirmation - <%= name %> - <%= selectedDate %>"</strong>
+          </p>
+        <% } else { %>
+          <p style="font-size: 14px; color: #28a745;">
+            Your payment has been received, and your booking is confirmed. We will see you on <%= selectedDate %>.
+          </p>
+        <% } %>
+
+        <p style="font-size: 14px; color: #555;">
+          If you have any questions, feel free to reach out to us. We look forward to assisting you.
+        </p>
+        <p style="font-size: 14px; color: #555;">Best regards,</p>
+        <p style="font-size: 14px; color: #555;">BrainOneTech Team</p>
+        <p style="font-size: 14px; color: #555;">
+          <a href="https://brain-one-tech.vercel.app" style="color: #007bff; text-decoration: none;">Visit our website</a>
+        </p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
