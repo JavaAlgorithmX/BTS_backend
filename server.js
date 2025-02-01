@@ -9,7 +9,7 @@ const emailRoutes = require('./router/email-router');
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
 app.get("/logo", (req, res) => {
-  const logoPath = path.join(__dirname, "public/images/logo1.png");
+  const logoPath = path.join(__dirname, "public/image/logo1.png");
   res.sendFile(logoPath);
 });
 
