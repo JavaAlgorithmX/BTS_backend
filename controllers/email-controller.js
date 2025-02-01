@@ -24,51 +24,6 @@ const validateEmailDomain = (email) => {
   });
 };
 
-
-// const emailConfig = {
-//   enquiry: {
-//     subject: "Thank You for Your Enquiry",
-//     templatePath: "../email/enquiry-email-template.ejs",
-//     adminSubject: "New Enquiry Received",
-//     adminTemplatePath: "../email/admin-enquiry-email-template.ejs",
-//   },
-//   course_enquiry_course_details_page: {
-//     subject: "Thank You for Your Enquiry About Course",
-//     templatePath: "../email/course-enquiry-email-template.ejs",
-//     adminSubject: "New Course Enquiry Received",
-//     adminTemplatePath: "../email/admin-enquiry-email-template.ejs",
-//   },
-//   consulting: {
-//     subject: "Consulting Slot Confirmation",
-//     templatePath: "../email/consulting-slot-booking-email-template.ejs",
-//     adminSubject: "New Consulting Slot Booking",
-//     adminTemplatePath: "../email/admin-consulting-email-template.ejs",
-//   },
-//   contact_us_home: {
-//     subject: "Thank You for Contacting Us",
-//     templatePath: "../email/get-in-touch-home-email-template.ejs",
-//     adminSubject: "New Contact Enquiry (Home Page)",
-//     adminTemplatePath: "../email/admin-enquiry-email-template.ejs",
-//   },
-//   contact_us_projects: {
-//     subject: "Thank You for Your Enquiry",
-//     templatePath: "../email/get-in-touch-project-email-template.ejs",
-//     adminSubject: "New Contact Enquiry (Projects Page)",
-//     adminTemplatePath: "../email/admin-enquiry-email-template.ejs",
-//   },
-//   contact_us_products: {
-//     subject: "Thank You for Your Enquiry",
-//     templatePath: "../email/get-in-touch-products-email-template.ejs",
-//     adminSubject: "New Contact Enquiry (Products Page)",
-//     adminTemplatePath: "../email/admin-enquiry-email-template.ejs",
-//   },
-//   About_us: {
-//     subject: "Thank You for Your Enquiry",
-//     templatePath: "../email/get-in-touch-about-us.ejs",
-//     adminSubject: "New Contact Enquiry (About Us Page)",
-//     adminTemplatePath: "../email/admin-enquiry-email-template.ejs",
-//   },
-// };
 const path = require('path');
 
 const emailConfig = {
